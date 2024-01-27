@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Urlap from "./component/Urlap";
+import DataService from "./model/DataService";
+
+const ds = new DataService();
 
 function App() {
+  function kuld(adat) {
+    console.log(adat);
+    useEffect(() => {
+      // végpont csak példa, backend nélkül nem jó úgysem :D
+      ds.postData(vegpont, adat);
+    });
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Űrlap</h1>
       </header>
+      <Urlap kuld={kuld}></Urlap>
     </div>
   );
 }
